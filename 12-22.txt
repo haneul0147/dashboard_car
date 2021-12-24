@@ -1,0 +1,189 @@
+보안 그룹 누르기
+인바운드/아웃바운드 규칙 편집 
+
+blockenters@gmail.com
+인바운드 규칙 편집 
+
+디렉토리 올라가기 cd .. 
+현재 디렉토리 확인 pwd
+
+
+
+http : //  port 80
+https : // port 443 
+
+all 아무데서나 
+규칙 저장 
+
+ec2- 
+git clone
+
+깃허브 닷컴의 HTTPS  클론한거 복사한거 넣ㄱ ㅣ
+
+yum install git 
+
+sudo yum install git 
+
+cd dashboard car/   (경로로 들어가기) 
+app.py
+streamlit run app.py
+
+nohup streamlit run player.py&
+
+*streamlit browser 가 종료되지 않게 하기
+nohup   streamlit run app.py  & 
+
+nohup : ignoring input and app ~~  
+
+돌아가고 있음 .
+
+cd dashboard car/ (프로젝트:dashboard car/) (streamlit 새롭게 업데이트했을때0
+git pull
+
+//////////////
+인터넷 연결
+보안 인바운드 규칙
+8501 이라는 포트가 없어서
+포트를 설정해줘야됌
+보안그룹 링크 - 인바운드 규칙 -
+
+규칙 추가 
+사용자 지정  TCP
+포트 범위 8501
+사용자 지정 - anywhere ipv4
+ 규칙저장
+
+ip 주소 도메인네임으로 바꾸기
+
+DNS주소로 넣어도 알 수 있다.
+
+
+
+----------------정리
+1.ec2에서 깃허브닷컴 레파지토리 클론하기 위해 
+해야되는것들
+
+2. 아나콘다 연결하기 
+3. 스트림릿 연결하기 
+4. 깃허브에서 HTTP 클론해서 넣기 
+
+
+5. 스트림릿을 실행시킬때 포트 처리하는 방법 
+            같은 포트로 맞춰야 함 
+            인스턴스 추가 규진 만들어내야 됨 
+    
+3. 스트림릿을 ec2 서버에서 실행시킬때,터미널 접속을 끊어도
+24시간 365 일 돌아가도록 하는 방법
+
+4. 소스코드가 수정되었을 경우 , EC2에 수정사항을 반영하 코드
+
+
+https://hhseong.tistory.com/162 현재(no supported) 오래 해결방법
+
+
+
+
+
+12-23 
+ 명령어 
+git clone (주소)
+
+
+cd diabets/                    cd diabets 안 데이터를 가져온다 
+
+(웹 데시보드 소개 ) streamlit 실행있음 
+
+streamlit run app.py --sever.port 8502                 (번호는 마음대로 지정)
+(External URL) 
+
+
+방화벽에 문제가 생길 시 
+AWS 콘솔에 로그인 
+인스턴스 -보안 - 보안그룹 클릭 - 인바운드 규칙 - 인바운드 규칙편집
+
+규칙추가-포트범위[ 8502]  소스유형 [Anywhere-IPv4] 
+		설명 - diabets (설명에는 한글이 사용되지 않는다)
+
+
+Ctrl + C  -  끄면 사이트도 꺼짐 
+(사이트 연결할 수 없다)
+
+
+nohup  (끄지말라는 명령어)
+nohup streamlit run app.py --server.port 8502 &
+
+
+----------소스 코드 수정하기 -----------
+ec2에 실서비스에 적용중인 소스파일을 수정하고 싶으면! 
+1. 내 로컬에 있는 소스파일을 수정하고  (Visaul studio에서 수정한 뒤 )
+2. 수정된것을 내 로컬에서 돌려서 테스트한다. (Visaul studio 터미널에서 페이지를 열어본다 ) 
+3. 이상이 없으면, 깃 허밋한다. 
+4. 커밋 후에는, 깃허브닷컴으로 푸시한다.
+5. ec2에서, 깃허브닷컴에 있는 완벽한 소스를 pull한다!!
+
+
+pwd (경로확인)
+diabets 안에서  git pull 
+
+---------------------큰 용량의 데이터 
+
+클라이언트 용 ->파일질라 다운
+서버 용        -> 
+
+디렉토리 올라가기 cd .. 
+현재 디렉토리 확인 pwd
+
+$ sudo yum vsftpd
+
+$ vi /etc/vsftpd/vsftpd.conf
+
+나가는 법 ESC  ->   shift + ;   -> q!  -> enter
+ 
+$ sudo vi /etc/vsftpd/vsftpd.conf   (슈퍼유저로 들어가기)
+
+1.서버에 vsftpd 를 설치해준다
+2. vsftpd의 설정파일을 수정해 준다.  => 바꿀거 없다.
+3. 파일질라를 내컴에 설치 
+4. 클라이언트(내컴)에서, ec2의 ftp로 접속 
+
+ AWS 콘솔로 가기 
+보안그룹 - 인바운드 규칙편집 - 규칙 추가 - 소스유형(AnywhereIPv4) -설명(ftp) - 규칙
+
+----------------------------------12-24---------------------------------
+[파이썬만 설치]
+아나콘다를 이용해 파이썬 가상환경만들기
+1. 콘다로 가상환경 만들기
+conda create -n (가상환경이름) python= (파이썬 버전 번호)
+
+
+[가상환경과 라이브러리 설치]
+2. 설치된 파이썬과 설치된 라이브러리를 파일로 옮기는 것
+conda list --explicit > spec-file.txt   
+3. 파일을 가지고, 새로운 가상환경만들기!
+conda create -n (가상환경이름) --file spec-file.txt
+
+[가상화면에 들어가고 나오는 방법]
+conda activate 가상환경 이름 -> 들어가는 방법
+conda deactivate =>  현재의 가상환경을 종료하는 방법
+
+[내가 만든 가상환경 모두 보고 싶을때]
+conda info --envs
+
+[아나 콘다 버전 모음]
+https://repo.anaconda.com/archive/
+
+
+앞으로 로컬에서 개발할때는 
+개발하면서 필요한 라이브러리를 설치(예:pip install streamlit)하고,
+설치한 라이브러리 이름(예:streamlit)을 
+requirements.txt 파일에도 적어준다.
+
+개발하면서 mysql-connect-python 이 필요하면,
+설치하고(pip install mysql-connect-python)
+설치한 라이브러리 이름 mysql-connect-python을
+requirements.txt 파일에도 적어준다.
+
+다 개발이 끝난후, 실서버에 적용할때는 
+깃허브닷컴에 requirements.txt 가 같이 존재하니까,
+실서버에서는 pip insatll - r requiremenet.txt 한줄만 실행해주면
+필요한 라이브러리들이 다 자동으로 설치가 된다. 

@@ -1,0 +1,8 @@
+ if choice == 'Welcome':
+        st.subheader('선수의 몸값 알아보는 페이지입니다')
+        if st.checkbox('Click me') :
+            # do_something()
+            st.balloons()
+            # col1, col2 = st.columns(2)
+            # col1.write('')
+            # col2.write('ggg')
