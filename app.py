@@ -9,7 +9,7 @@ from ml_app import run_ml_app
 def main():
 
     # 사이드바 메뉴
-    menu = ['home','EDA','ML']
+    menu = ['home','Data','ML']
     choice=st.sidebar.selectbox('메뉴',menu)
 
     if choice == 'home':
@@ -17,7 +17,7 @@ def main():
         if st.button('Click here') :
             st.video('https://youtu.be/T8YOJIoOifc',format='video/mp4')
     
-    elif choice == 'EDA':
+    elif choice == 'Data':
         run_eda_app()
     elif choice == 'ML':
         run_ml_app()
