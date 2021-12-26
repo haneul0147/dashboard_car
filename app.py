@@ -9,7 +9,7 @@ from ml_app import run_ml_app
 def main():
 
     # 사이드바 메뉴
-    menu = ['home','Data','ML']
+    menu = ['home','Data','나의 차량 찾기']
     choice=st.sidebar.selectbox('메뉴',menu)
 
     if choice == 'home':
@@ -19,7 +19,7 @@ def main():
     
     elif choice == 'Data':
         run_eda_app()
-    elif choice == 'ML':
+    elif choice == '나의 차량 찾기':
         run_ml_app()
 
 if __name__ == '__main__':
